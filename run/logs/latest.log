@@ -1,74 +1,74 @@
-[03:55:15] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[03:55:17] [ServerMain/INFO]: Loaded 7 recipes
-[03:55:18] [Server thread/INFO]: Starting minecraft server version 1.20.1
-[03:55:18] [Server thread/INFO]: Loading properties
-[03:55:18] [Server thread/INFO]: This server is running Paper version git-Paper-196 (MC: 1.20.1) (Implementing API version 1.20.1-R0.1-SNAPSHOT) (Git: 773dd72)
-[03:55:18] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[03:55:18] [Server thread/INFO]: Using 4 threads for Netty based IO
-[03:55:19] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
+[04:24:00] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[04:24:01] [ServerMain/INFO]: Loaded 7 recipes
+[04:24:02] [Server thread/INFO]: Starting minecraft server version 1.20.1
+[04:24:02] [Server thread/INFO]: Loading properties
+[04:24:02] [Server thread/INFO]: This server is running Paper version git-Paper-196 (MC: 1.20.1) (Implementing API version 1.20.1-R0.1-SNAPSHOT) (Git: 773dd72)
+[04:24:03] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[04:24:03] [Server thread/INFO]: Using 4 threads for Netty based IO
+[04:24:03] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
     We recommend installing the spark profiler as a replacement: https://spark.lucko.me/
     For more information please visit: https://github.com/PaperMC/Paper/issues/8948
-[03:55:19] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
-[03:55:19] [Server thread/INFO]: Default game type: SURVIVAL
-[03:55:19] [Server thread/INFO]: Generating keypair
-[03:55:19] [Server thread/INFO]: Starting Minecraft server on *:25565
-[03:55:19] [Server thread/INFO]: Using epoll channel type
-[03:55:20] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
-[03:55:20] [Server thread/INFO]: Paper: Using OpenSSL 3.0.x (Linux x86_64) cipher from Velocity.
-[03:55:20] [Server thread/INFO]: [dUtils] Loading server plugin dUtils v1.0
-[03:55:20] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[03:55:20] [Server thread/INFO]: Preparing level "world"
-[03:55:21] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[03:55:21] [Server thread/INFO]: Time elapsed: 378 ms
-[03:55:21] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[03:55:21] [Server thread/INFO]: Time elapsed: 108 ms
-[03:55:21] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[03:55:21] [Server thread/INFO]: Time elapsed: 49 ms
-[03:55:21] [Server thread/INFO]: [dUtils] Enabling dUtils v1.0
-[03:55:21] [Server thread/INFO]: Running delayed init tasks
-[03:55:21] [Server thread/INFO]: Done (3.809s)! For help, type "help"
-[03:55:21] [Server thread/INFO]: Timings Reset
-[03:55:35] [User Authenticator #0/INFO]: UUID of player destroyerr_ is 092cadfb-078b-45f9-86c2-1f94227c6e14
-[03:55:36] [Server thread/INFO]: destroyerr_ joined the game
-[03:55:36] [Server thread/INFO]: destroyerr_[/127.0.0.1:51896] logged in with entity id 219 at ([world]3.282155960092738, 66.0, 39.54420074261805)
-[03:55:40] [Server thread/INFO]: destroyerr_ issued server command: /gamemode
-[03:55:42] [Server thread/INFO]: destroyerr_ issued server command: /gamemode s
-[03:55:43] [Server thread/INFO]: destroyerr_ issued server command: /gamemode c
-[03:55:45] [Server thread/INFO]: destroyerr_ issued server command: /gamemode a
-[03:55:46] [Server thread/INFO]: destroyerr_ issued server command: /gamemode sp
-[03:55:47] [Server thread/INFO]: destroyerr_ issued server command: /gamemode sc
-[03:55:48] [Server thread/INFO]: destroyerr_ issued server command: /gamemode c
-[03:56:03] [Server thread/INFO]: destroyerr_ issued server command: /gamemode c fdasfsaf
-[03:56:08] [Server thread/INFO]: destroyerr_ issued server command: /gamemode c destroyerr_
-[03:56:17] [Server thread/INFO]: destroyerr_ issued server command: /gamemode s destroyerr_
-[03:56:23] [Server thread/INFO]: destroyerr_ issued server command: /gamemode sp destroyerr_
-[03:56:26] [Server thread/INFO]: destroyerr_ issued server command: /gamemode s destroyerr_
-[03:56:39] [Server thread/INFO]: destroyerr_ issued server command: /gamemode s destroyerr_ d
-[03:56:43] [Server thread/INFO]: destroyerr_ lost connection: Disconnected
-[03:56:43] [Server thread/INFO]: destroyerr_ left the game
-[03:56:46] [Server thread/INFO]: Stopping server
-[03:56:46] [Server thread/INFO]: [dUtils] Disabling dUtils v1.0
-[03:56:46] [Server thread/INFO]: Saving players
-[03:56:46] [Server thread/INFO]: Saving worlds
-[03:56:46] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[03:56:46] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[03:56:46] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[03:56:46] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
-[03:56:48] [Server thread/INFO]: [ChunkHolderManager] Saved 1482 block chunks, 650 entity chunks, 0 poi chunks in world 'world' in 2.00s
-[03:56:48] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[03:56:48] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[03:56:48] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[03:56:48] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[03:56:48] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
-[03:56:48] [Server thread/INFO]: [ChunkHolderManager] Saved 529 block chunks, 529 entity chunks, 0 poi chunks in world 'world_nether' in 0.68s
-[03:56:48] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[03:56:48] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[03:56:48] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[03:56:48] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[03:56:48] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
-[03:56:49] [Server thread/INFO]: [ChunkHolderManager] Saved 529 block chunks, 529 entity chunks, 0 poi chunks in world 'world_the_end' in 0.15s
-[03:56:49] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[03:56:49] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
-[03:56:49] [Server thread/INFO]: Flushing Chunk IO
-[03:56:49] [Server thread/INFO]: Closing Thread Pool
-[03:56:49] [Server thread/INFO]: Closing Server
+[04:24:03] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
+[04:24:03] [Server thread/INFO]: Default game type: SURVIVAL
+[04:24:03] [Server thread/INFO]: Generating keypair
+[04:24:04] [Server thread/INFO]: Starting Minecraft server on *:25565
+[04:24:04] [Server thread/INFO]: Using epoll channel type
+[04:24:04] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
+[04:24:04] [Server thread/INFO]: Paper: Using OpenSSL 3.0.x (Linux x86_64) cipher from Velocity.
+[04:24:04] [Server thread/INFO]: [dUtils] Loading server plugin dUtils v1.0
+[04:24:04] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[04:24:04] [Server thread/INFO]: Preparing level "world"
+[04:24:05] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[04:24:06] [Server thread/INFO]: Time elapsed: 374 ms
+[04:24:06] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[04:24:06] [Server thread/INFO]: Time elapsed: 143 ms
+[04:24:06] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[04:24:06] [Server thread/INFO]: Time elapsed: 125 ms
+[04:24:06] [Server thread/INFO]: [dUtils] Enabling dUtils v1.0
+[04:24:06] [Server thread/INFO]: Running delayed init tasks
+[04:24:06] [Server thread/INFO]: Done (3.524s)! For help, type "help"
+[04:24:06] [Server thread/INFO]: Timings Reset
+[04:25:13] [User Authenticator #0/INFO]: UUID of player destroyerr_ is 092cadfb-078b-45f9-86c2-1f94227c6e14
+[04:25:13] [Server thread/INFO]: destroyerr_ joined the game
+[04:25:13] [Server thread/INFO]: destroyerr_[/127.0.0.1:58520] logged in with entity id 210 at ([world]0.30000001192092896, 75.0, 36.30000001192093)
+[04:25:19] [Server thread/INFO]: destroyerr_ issued server command: /diff s
+[04:25:25] [Server thread/INFO]: destroyerr_ issued server command: /diff h
+[04:25:37] [Server thread/INFO]: destroyerr_ issued server command: /time set 0
+[04:25:37] [Server thread/INFO]: [destroyerr_: Set the time to 0]
+[04:25:41] [Server thread/INFO]: destroyerr_ issued server command: /time set night
+[04:25:41] [Server thread/INFO]: [destroyerr_: Set the time to 13000]
+[04:25:46] [Server thread/INFO]: destroyerr_ issued server command: /time set noon
+[04:25:46] [Server thread/INFO]: [destroyerr_: Set the time to 6000]
+[04:25:50] [Server thread/INFO]: destroyerr_ issued server command: /time set midnight
+[04:25:50] [Server thread/INFO]: [destroyerr_: Set the time to 18000]
+[04:25:58] [Server thread/INFO]: destroyerr_ issued server command: /diff h
+[04:26:32] [Server thread/INFO]: destroyerr_ issued server command: /diff p
+[04:26:33] [Server thread/INFO]: destroyerr_ issued server command: /diff h
+[04:26:40] [Server thread/INFO]: destroyerr_ lost connection: Disconnected
+[04:26:40] [Server thread/INFO]: destroyerr_ left the game
+[04:27:31] [Server thread/INFO]: Stopping server
+[04:27:31] [Server thread/INFO]: [dUtils] Disabling dUtils v1.0
+[04:27:31] [Server thread/INFO]: Saving players
+[04:27:31] [Server thread/INFO]: Saving worlds
+[04:27:31] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[04:27:31] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[04:27:31] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[04:27:31] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[04:27:33] [Server thread/INFO]: [ChunkHolderManager] Saved 2036 block chunks, 881 entity chunks, 1 poi chunks in world 'world' in 2.06s
+[04:27:33] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[04:27:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[04:27:33] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[04:27:33] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[04:27:33] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[04:27:33] [Server thread/INFO]: [ChunkHolderManager] Saved 529 block chunks, 529 entity chunks, 0 poi chunks in world 'world_nether' in 0.56s
+[04:27:33] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[04:27:33] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[04:27:33] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[04:27:33] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[04:27:33] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[04:27:33] [Server thread/INFO]: [ChunkHolderManager] Saved 529 block chunks, 529 entity chunks, 0 poi chunks in world 'world_the_end' in 0.16s
+[04:27:33] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[04:27:33] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[04:27:33] [Server thread/INFO]: Flushing Chunk IO
+[04:27:33] [Server thread/INFO]: Closing Thread Pool
+[04:27:33] [Server thread/INFO]: Closing Server

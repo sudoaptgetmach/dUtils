@@ -4,5 +4,8 @@ main: com.mach.utils.Main
 api-version: 1.20
 commands:
   gamemode:
-    alias:
+    aliases:
       - gm
+  difficulty:
+    aliases:
+      - diff

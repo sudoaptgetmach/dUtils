@@ -34,7 +34,6 @@ class GamemodeCommand(val main: Main) : CommandExecutor {
             return false
         }
 
-        val gamemode = args[0]
         val playerName = if (args.size > 1) args[1] else sender.name
 
         val player = Bukkit.getPlayer(playerName)
@@ -48,7 +47,7 @@ class GamemodeCommand(val main: Main) : CommandExecutor {
             return false
         }
 
-        when (gamemode) {
+        when (args[0]) {
             "survival", "s", "0" -> player!!.gameMode = GameMode.SURVIVAL
             "creative", "c", "1" -> player!!.gameMode = GameMode.CREATIVE
             "adventure", "a", "2" -> player!!.gameMode = GameMode.ADVENTURE
