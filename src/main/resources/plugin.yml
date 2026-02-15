@@ -6,6 +6,3 @@ commands:
   gamemode:
     aliases:
       - gm
-  difficulty:
-    aliases:
-      - diff

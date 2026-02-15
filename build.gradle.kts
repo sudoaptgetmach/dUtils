@@ -18,6 +18,10 @@ repositories {
 
 dependencies {
     paperweight.paperDevBundle("1.20.1-R0.1-SNAPSHOT")
+    implementation("io.github.revxrsal:lamp.common:4.0.0-rc.14")
+    implementation("io.github.revxrsal:lamp.bukkit:4.0.0-rc.14")
+    implementation("io.github.revxrsal:lamp.brigadier:4.0.0-rc.14")
+    implementation(files("/home/mach/IdeaProjects/dFrameworkKt/build/libs/dFramework-1.0-dev.jar"))
 }
 
 tasks {

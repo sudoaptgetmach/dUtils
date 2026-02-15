@@ -1,27 +1,22 @@
 package com.mach.utils.commands
 
-import com.mach.utils.Main
+import com.mach.utils.enums.CoreMessages
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.Bukkit
 import org.bukkit.Difficulty
-import org.bukkit.command.Command
-import org.bukkit.command.CommandExecutor
-import org.bukkit.command.CommandSender
+import org.bukkit.entity.Player
+import revxrsal.commands.annotation.Command
 
-class DifficultyCommand(val main: Main) : CommandExecutor {
-    override fun onCommand(
-        sender: CommandSender,
-        cmd: Command,
-        string: String,
-        args: Array<out String>?
-    ): Boolean {
+class DifficultyCommand() {
+    @Command("difficulty", "diff", "dificuldade")
+    fun difficulty(sender: Player, args: Array<out String>? = null) {
         if (!sender.hasPermission("dutils.difficulty")) {
             sender.sendMessage(
-                Component.text(main.config.getString("messages.no-permission").toString())
+                Component.text(CoreMessages.NO_PERMISSION.get())
                     .color(NamedTextColor.RED)
             )
-            return false
+            return
         }
 
         if (args.isNullOrEmpty() || args.size > 1) {
@@ -29,13 +24,12 @@ class DifficultyCommand(val main: Main) : CommandExecutor {
                 Component.text("Utilize: /difficulty <difficulty>")
                     .color(NamedTextColor.RED)
             )
-
-            return false
+            return
         }
 
         val world = Bukkit.getServer().worlds[0]
 
-         when (args[0]) {
+        when (args[0]) {
             "p", "peaceful", "0" -> world.difficulty = Difficulty.PEACEFUL
             "e", "easy", "1" -> world.difficulty = Difficulty.EASY
             "n", "normal", "2" -> world.difficulty = Difficulty.NORMAL
@@ -45,7 +39,5 @@ class DifficultyCommand(val main: Main) : CommandExecutor {
         sender.sendMessage(
             Component.text("Difficulty changed to " + world.difficulty.toString() + ".").color(NamedTextColor.GREEN)
         )
-
-        return false
     }
 }
