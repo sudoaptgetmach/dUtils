@@ -1,2 +1,11 @@
 no-permission: "Você não tem permissão para executar esse comando."
 invalid-player: "Você deve inserir um jogador válido."
+invalid-syntax: "Uso incorreto. Use: /%command% %args%"
+
+difficulty:
+  set: "Dificuldade %difficulty% definida com sucesso."
+  invalid: "Dificuldade inválida. As opções válidas são: %difficulties%."
+
+warps:
+  not_found: "Warp %name% não encontrada."
+  teleported_successfully: "Teleportado com sucesso a warp %name%."

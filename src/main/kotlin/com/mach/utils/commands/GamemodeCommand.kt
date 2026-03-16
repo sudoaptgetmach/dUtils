@@ -15,7 +15,7 @@ class GamemodeCommand(val main: Main) : CommandExecutor {
         sender: CommandSender,
         cmd: Command,
         string: String,
-        args: Array<out String>?
+        args: Array<out String>
     ): Boolean {
         if (sender !is Player || !sender.hasPermission("dutils.gamemode")) {
             sender.sendMessage(

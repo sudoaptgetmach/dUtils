@@ -21,7 +21,7 @@ dependencies {
     implementation("io.github.revxrsal:lamp.common:4.0.0-rc.14")
     implementation("io.github.revxrsal:lamp.bukkit:4.0.0-rc.14")
     implementation("io.github.revxrsal:lamp.brigadier:4.0.0-rc.14")
-    implementation(files("/home/mach/IdeaProjects/dFrameworkKt/build/libs/dFramework-1.0-dev.jar"))
+    implementation(files("/home/mach/IdeaProjects/dFrameworkKt/build/libs/dFrameworkKt-1.0-dev-all.jar"))
 }
 
 tasks {
