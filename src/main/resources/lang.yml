@@ -7,5 +7,7 @@ difficulty:
   invalid: "Dificuldade inválida. As opções válidas são: %difficulties%."
 
 warps:
+  added: "Warp adicionada com sucesso."
+  removed: "Warp removida com sucesso."
   not_found: "Warp %name% não encontrada."
   teleported_successfully: "Teleportado com sucesso a warp %name%."

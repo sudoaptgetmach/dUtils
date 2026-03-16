@@ -13,6 +13,8 @@ enum class CoreMessages(private val _path: String) : IConfigurableEnum {
     DIFFICULTY_CHANGED("difficulty.changed"),
     DIFFICULTY_INVALID("difficulty.invalid"),
 
+    WARP_ADDED("warps.added"),
+    WARP_REMOVED("warps.removed"),
     WARP_NOT_FOUND("warps.not_found"),
     WARP_TELEPORTED_SUCCESSFULLY("warps.teleported_successfully");
 

@@ -9,19 +9,19 @@ class Warps {
     private var public: Boolean = true;
 
     fun addWarp(name: String, location: Location, world: String, public: Boolean) {
-        TODO()
+
     }
 
     fun removeWarp(name: String) {
-        TODO()
+
     }
 
     fun warpExists(name: String): Boolean {
-        TODO()
+        return false;
     }
 
     fun getWarpLocation(name: String): Location {
-        TODO()
+        TODO();
     }
 
     fun listWarps(): List<String> {

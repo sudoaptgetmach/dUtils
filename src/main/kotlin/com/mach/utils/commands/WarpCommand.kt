@@ -4,7 +4,6 @@ import com.mach.utils.enums.CoreMessages
 import com.mach.utils.model.Warps
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
-import net.md_5.bungee.api.chat.BaseComponent
 import revxrsal.commands.annotation.Command
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
 
@@ -31,15 +30,18 @@ class WarpCommand {
                     player.sendMessage(Component.text(CoreMessages.NO_PERMISSION.get()).color(NamedTextColor.RED))
                     return;
                 }
-
                 warps.addWarp(args[1], player.location, player.world.name, true);
+                player.sendMessage(Component.text(CoreMessages.WARP_ADDED.get(), NamedTextColor.GREEN))
+                return
             }
             "delete" -> {
                 if (!player!!.hasPermission("dutils.warps.delete")) {
-                    player.sendMessage(Component.text(CoreMessages.NO_PERMISSION.get()).color(NamedTextColor.RED))
+                    player.sendMessage(Component.text(CoreMessages.NO_PERMISSION.get(), NamedTextColor.RED))
                     return;
                 }
                 warps.removeWarp(args[1]);
+                player.sendMessage(Component.text(CoreMessages.WARP_REMOVED.get(), NamedTextColor.GREEN))
+                return
             }
             else -> {
                 val name = args?.get(0)
@@ -79,7 +81,7 @@ class WarpCommand {
         }
 
         val message = Component.text()
-            .append(Component.text("Lista de warps disponíveis: \n", NamedTextColor.GREEN))
+            .append(Component.text("Lista de warps disponíveis: \n\n", NamedTextColor.GREEN))
             .append(Component.text(warpList, NamedTextColor.GRAY))
             .build()
 
