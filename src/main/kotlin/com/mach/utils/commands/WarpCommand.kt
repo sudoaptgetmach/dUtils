@@ -16,7 +16,7 @@ class WarpCommand {
     @Command("warp")
     fun warp(sender: BukkitCommandActor, args: Array<out String>? = null) {
         if (args.isNullOrEmpty() || args.size > 1) {
-            CoreMessages.DIFFICULTY_CHANGED.get(
+            CoreMessages.INVALID_SYNTAX.get(
                 mapOf(
                     "%command%" to "warp",
                     "%args%" to "<warp name>"
