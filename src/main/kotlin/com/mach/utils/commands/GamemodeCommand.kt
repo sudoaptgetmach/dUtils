@@ -1,8 +1,7 @@
 package com.mach.utils.commands
 
-import com.mach.utils.Main
-import net.kyori.adventure.text.Component
-import net.kyori.adventure.text.format.NamedTextColor
+import com.mach.utils.messages.CoreMessages
+import com.mach.utils.messages.GamemodeMessages
 import org.bukkit.Bukkit
 import org.bukkit.GameMode
 import org.bukkit.command.Command
@@ -10,7 +9,11 @@ import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class GamemodeCommand(val main: Main) : CommandExecutor {
+class GamemodeCommand : CommandExecutor {
+
+    private val messages = CoreMessages()
+    private val gamemodeMessages = GamemodeMessages()
+
     override fun onCommand(
         sender: CommandSender,
         cmd: Command,
@@ -19,16 +22,14 @@ class GamemodeCommand(val main: Main) : CommandExecutor {
     ): Boolean {
         if (sender !is Player || !sender.hasPermission("dutils.gamemode")) {
             sender.sendMessage(
-                Component.text(main.config.getString("messages.no-permission").toString())
-                    .color(NamedTextColor.RED)
+                messages.noPermission()
             )
             return false
         }
 
-        if (args.isNullOrEmpty() || args.size > 2) {
+        if (args.isEmpty() || args.size > 2) {
             sender.sendMessage(
-                Component.text("Utilize: /gamemode <gamemode> [user]")
-                    .color(NamedTextColor.RED)
+                messages.invalidSyntax("gamemode", "<gamemode> [user]")
             )
 
             return false
@@ -40,10 +41,8 @@ class GamemodeCommand(val main: Main) : CommandExecutor {
 
         if (!playerName.isEmpty() && player == null) {
             sender.sendMessage(
-                Component.text(main.config.getString("messages.invalid-player").toString())
-                    .color(NamedTextColor.RED)
+                messages.invalidPlayer()
             )
-
             return false
         }
 
@@ -55,7 +54,7 @@ class GamemodeCommand(val main: Main) : CommandExecutor {
         }
 
         player!!.sendMessage(
-            Component.text("Gamemode changed to " + player.gameMode.toString() + ".").color(NamedTextColor.GREEN)
+            gamemodeMessages.changed(player.gameMode.toString())
         )
         return false
     }

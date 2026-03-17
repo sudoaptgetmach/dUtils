@@ -1,13 +1,20 @@
-no-permission: "Você não tem permissão para executar esse comando."
-invalid-player: "Você deve inserir um jogador válido."
-invalid-syntax: "Uso incorreto. Use: /%command% %args%"
+messages:
+    no_permission: "<red>Você não tem permissão para executar esse comando."
+    invalid_player: "<red>Você deve inserir um jogador válido."
+    invalid_syntax: "<red>Uso incorreto. Use: /{command} {args}"
+    config_reloaded: "<green>Configuração recarregada com sucesso."
+  
+    difficulty:
+      set: "<green>Dificuldade <yellow>{difficulty}</yellow> definida com sucesso."
+      invalid: "<red>Dificuldade inválida. As opções válidas são: <yellow>{difficulties}"
+  
+    warps:
+      list: "<green>Lista de warps disponíveis: <gray>\n\n{warpList}"
+      list_empty: "<gray>Nenhuma warp disponível. :("
+      added: "<green>Warp adicionada com sucesso."
+      removed: "<green>Warp removida com sucesso."
+      not_found: "<red>Warp <yellow>{name}</yellow> não encontrada."
+      teleported_successfully: "<green>Teleportado com sucesso para a warp <yellow>{name}</yellow>."
 
-difficulty:
-  set: "Dificuldade %difficulty% definida com sucesso."
-  invalid: "Dificuldade inválida. As opções válidas são: %difficulties%."
-
-warps:
-  added: "Warp adicionada com sucesso."
-  removed: "Warp removida com sucesso."
-  not_found: "Warp %name% não encontrada."
-  teleported_successfully: "Teleportado com sucesso a warp %name%."
+    gamemode:
+      changed: "<green>Gamemode alterado para <yellow>{gamemode}</yellow>."

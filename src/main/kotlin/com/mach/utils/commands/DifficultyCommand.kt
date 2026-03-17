@@ -1,28 +1,27 @@
 package com.mach.utils.commands
 
-import com.mach.utils.enums.CoreMessages
-import net.kyori.adventure.text.Component
-import net.kyori.adventure.text.format.NamedTextColor
+import com.mach.utils.messages.CoreMessages
+import com.mach.utils.messages.DifficultyMessages
 import org.bukkit.Bukkit
 import org.bukkit.Difficulty
 import org.bukkit.entity.Player
 import revxrsal.commands.annotation.Command
 
 class DifficultyCommand {
+
+    private val coreMessages = CoreMessages()
+    private val difficultyMessages = DifficultyMessages()
+
     @Command("difficulty", "diff", "dificuldade")
     fun difficulty(sender: Player, args: Array<out String>? = null) {
         if (!sender.hasPermission("dutils.difficulty")) {
-            sender.sendMessage(
-                Component.text(CoreMessages.NO_PERMISSION.get())
-                    .color(NamedTextColor.RED)
-            )
+            sender.sendMessage(coreMessages.noPermission())
             return
         }
 
         if (args.isNullOrEmpty() || args.size > 1) {
-            sender.sendMessage(
-                Component.text("Utilize: /difficulty <difficulty>")
-                    .color(NamedTextColor.RED)
+            sender.sendMessage(coreMessages.invalidSyntax(
+                "difficulty", "<difficulty>")
             )
             return
         }
@@ -36,19 +35,16 @@ class DifficultyCommand {
             "h", "hard", "3" -> world.difficulty = Difficulty.HARD
             else -> {
                 sender.sendMessage(
-                    Component.text(CoreMessages.DIFFICULTY_INVALID.get()).color(NamedTextColor.RED)
+                    difficultyMessages.invalidDifficulty(
+                        "peaceful (p, 0), easy (e, 1), normal (n, 2), hard (h, 3)")
                 )
                 return
             }
         }
 
         sender.sendMessage(
-            Component.text(CoreMessages.DIFFICULTY_CHANGED.get(
-                mapOf(
-                    "player" to sender.name,
-                    "difficulty" to world.difficulty.name
-                )
-            ).toString()).color(NamedTextColor.GREEN)
+            difficultyMessages.difficultyChanged(args[0])
         )
+        return
     }
 }
