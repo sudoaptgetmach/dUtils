@@ -10,7 +10,7 @@ messages:
   
     warps:
       list: "<green>Lista de warps disponíveis: <gray>\n\n{warpList}"
-      list_empty: "<gray>Nenhuma warp disponível. :("
+      list_empty: "<gray>Nenhuma warp disponível. :(\n"
       added: "<green>Warp adicionada com sucesso."
       removed: "<red>Warp removida com sucesso."
       not_found: "<red>Warp <yellow>{name}</yellow> não encontrada."

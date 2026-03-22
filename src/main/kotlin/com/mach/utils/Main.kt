@@ -6,6 +6,7 @@ import com.mach.utils.commands.DUtilsCommand
 import com.mach.utils.commands.DifficultyCommand
 import com.mach.utils.commands.GamemodeCommand
 import com.mach.utils.commands.WarpCommand
+import com.mach.utils.handler.CommandExceptionHandler
 import com.mach.utils.service.WarpService
 import org.bukkit.plugin.java.JavaPlugin
 import revxrsal.commands.Lamp
@@ -17,6 +18,7 @@ class Main : JavaPlugin() {
 
     override fun onEnable() {
         val lamp: Lamp<BukkitCommandActor> = BukkitLamp.builder(this)
+            .exceptionHandler(CommandExceptionHandler())
             .build()
 
         ctx = FrameworkContext.create(this, "lang.yml")
@@ -26,7 +28,6 @@ class Main : JavaPlugin() {
 
         ctx.initialize()
         MessagesApi.init(ctx)
-
 
         getCommand("gamemode")!!.setExecutor(GamemodeCommand())
         lamp.register(DifficultyCommand())

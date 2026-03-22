@@ -29,18 +29,22 @@ class WarpMessages : MessageAccessor {
         )
     )
 
-    fun warpList(warpList: String?): Component = getMessage(
+    fun warpList(warpList: String): Component = getMessage(
         Messages.WARP_LIST.getPath(),
         "<green>Available warp list: \\n\\n{warpList}",
         mapOf(
-            "warpList" to (warpList ?: warpEmptyList().toString())
+            "warpList" to warpList
         )
     )
 
-    fun warpEmptyList(): Component = getMessage(
-        Messages.WARP_EMPTY_LIST.getPath(),
-        "<gray>No warps available. :("
-    )
+    fun warpEmptyList(): Component {
+        return warpList("").append {
+            getMessage(
+                Messages.WARP_EMPTY_LIST.getPath(),
+                "<gray>No warps available. :("
+            )
+        }
+    }
 
     fun teleportedSuccessfully(name: String): Component = getMessage(
         Messages.WARP_TELEPORTED_SUCCESSFULLY.getPath(),

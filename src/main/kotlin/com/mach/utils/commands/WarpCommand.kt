@@ -8,20 +8,16 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import revxrsal.commands.annotation.Command
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
+import revxrsal.commands.bukkit.annotation.CommandPermission
 
 class WarpCommand(private val service: WarpService) {
     private var coreMessages = CoreMessages()
     private var messages = WarpMessages()
 
     @Command("warp")
+    @CommandPermission("dutils.warp")
     fun warp(sender: BukkitCommandActor, args: Array<out String>?) {
         if (args.isNullOrEmpty() || args.size > 2) {
-            sender.reply(coreMessages.invalidSyntax("warp", "<warp name>"))
-            return
-        }
-
-        if (!sender.isPlayer) {
-            sender.reply(coreMessages.noPermission())
             return
         }
 
@@ -46,15 +42,15 @@ class WarpCommand(private val service: WarpService) {
     }
 
     @Command("setwarp")
+    @CommandPermission("dutils.warps.set")
     fun set(sender: BukkitCommandActor, args: Array<out String>?) {
         if (args.isNullOrEmpty() || args.size > 1) {
-            sender.reply(coreMessages.invalidSyntax("setwarp", "<warp name>"))
             return
         }
 
         val player = sender.asPlayer()
 
-        if (player == null || !player.hasPermission("dutils.warps.set")) {
+        if (player == null) {
             sender.reply(coreMessages.noPermission())
             return
         }
@@ -71,9 +67,9 @@ class WarpCommand(private val service: WarpService) {
     }
 
     @Command("delwarp")
+    @CommandPermission("dutils.warps.delete")
     fun delete(sender: BukkitCommandActor, args: Array<out String>?) {
         if (args.isNullOrEmpty() || args.size > 1) {
-            sender.reply(coreMessages.invalidSyntax("delwarp", "<warp name>"))
             return
         }
 
@@ -82,11 +78,6 @@ class WarpCommand(private val service: WarpService) {
 
         if (player == null) {
             sender.reply(coreMessages.noPermission())
-            return
-        }
-
-        if (!player.hasPermission("dutils.warps.delete")) {
-            player.sendMessage(coreMessages.noPermission())
             return
         }
 
@@ -105,15 +96,18 @@ class WarpCommand(private val service: WarpService) {
 
     @Command("warps")
     fun warps(sender: BukkitCommandActor) {
-        var warpList = ""
-        val warps = service.findAll()
+        val warpList = service.findAll()
+            .map { it.name }
+            .sorted()
+            .joinToString("\n")
 
-        if (warps.isNotEmpty()) {
-            for (warp in warps) {
-                warpList += "${warp.name}\n"
-            }
+        val response =
+        if (warpList.isEmpty()) {
+            messages.warpEmptyList()
+        } else {
+            messages.warpList(warpList)
         }
 
-        sender.reply(messages.warpList(warpList))
+        sender.reply(response)
     }
 }

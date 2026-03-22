@@ -1,28 +1,19 @@
 package com.mach.utils.commands
 
-import com.mach.utils.messages.CoreMessages
 import com.mach.utils.messages.DifficultyMessages
 import org.bukkit.Bukkit
 import org.bukkit.Difficulty
 import org.bukkit.entity.Player
 import revxrsal.commands.annotation.Command
+import revxrsal.commands.bukkit.annotation.CommandPermission
 
 class DifficultyCommand {
-
-    private val coreMessages = CoreMessages()
     private val difficultyMessages = DifficultyMessages()
 
     @Command("difficulty", "diff", "dificuldade")
+    @CommandPermission("dutils.difficulty")
     fun difficulty(sender: Player, args: Array<out String>? = null) {
-        if (!sender.hasPermission("dutils.difficulty")) {
-            sender.sendMessage(coreMessages.noPermission())
-            return
-        }
-
         if (args.isNullOrEmpty() || args.size > 1) {
-            sender.sendMessage(coreMessages.invalidSyntax(
-                "difficulty", "<difficulty>")
-            )
             return
         }
 
