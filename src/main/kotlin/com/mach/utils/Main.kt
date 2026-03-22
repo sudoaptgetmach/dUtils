@@ -6,6 +6,7 @@ import com.mach.utils.commands.DUtilsCommand
 import com.mach.utils.commands.DifficultyCommand
 import com.mach.utils.commands.GamemodeCommand
 import com.mach.utils.commands.WarpCommand
+import com.mach.utils.service.WarpService
 import org.bukkit.plugin.java.JavaPlugin
 import revxrsal.commands.Lamp
 import revxrsal.commands.bukkit.BukkitLamp
@@ -26,9 +27,10 @@ class Main : JavaPlugin() {
         ctx.initialize()
         MessagesApi.init(ctx)
 
+
         getCommand("gamemode")!!.setExecutor(GamemodeCommand())
         lamp.register(DifficultyCommand())
-        lamp.register(WarpCommand())
+        lamp.register(WarpCommand(WarpService(ctx.configs)))
         lamp.register(DUtilsCommand(ctx))
     }
 

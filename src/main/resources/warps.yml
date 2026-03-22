@@ -1,12 +1,9 @@
 warps:
   name:
+    world: ""
     location-x: ""
     location-y: ""
     location-z: ""
-    public: ""
-
-  name1:
-    location-x: ""
-    location-y: ""
-    location-z: ""
+    yaw: ""
+    pitch: ""
     public: ""
