@@ -2,8 +2,6 @@ package com.mach.utils.handler
 
 import com.mach.dFramework.context.FrameworkLogger
 import com.mach.utils.messages.CoreMessages
-import org.bukkit.Bukkit.getConsoleSender
-import org.bukkit.command.ConsoleCommandSender
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
 import revxrsal.commands.bukkit.exception.*
 import revxrsal.commands.exception.MissingArgumentException
@@ -14,12 +12,7 @@ class CommandExceptionHandler(private val logger: FrameworkLogger) : BukkitExcep
     val messages: CoreMessages = CoreMessages()
 
     override fun onInvalidPlayer(e: InvalidPlayerException?, actor: BukkitCommandActor) {
-        if (actor.isConsole) {
-            val console: ConsoleCommandSender = getConsoleSender()
-            console.sendMessage(messages.invalidPlayer())
-        } else {
-            actor.asPlayer()!!.sendMessage(messages.invalidPlayer())
-        }
+        actor.reply(messages.invalidPlayer())
     }
 
     override fun onMalformedEntitySelector(e: MalformedEntitySelectorException, actor: BukkitCommandActor) {
@@ -36,11 +29,7 @@ class CommandExceptionHandler(private val logger: FrameworkLogger) : BukkitExcep
     }
 
     override fun onNoPermission(e: NoPermissionException, actor: BukkitCommandActor) {
-        if (actor.isConsole) {
-            getConsoleSender().sendMessage(messages.noPermission())
-        } else {
-            actor.asPlayer()!!.sendMessage(messages.noPermission())
-        }
+        actor.reply(messages.noPermission())
     }
 
     override fun onMissingArgument(
