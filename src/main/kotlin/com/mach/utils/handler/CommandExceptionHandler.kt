@@ -6,6 +6,7 @@ import org.bukkit.command.ConsoleCommandSender
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
 import revxrsal.commands.bukkit.exception.BukkitExceptionHandler
 import revxrsal.commands.bukkit.exception.InvalidPlayerException
+import revxrsal.commands.bukkit.exception.SenderNotPlayerException
 import revxrsal.commands.exception.MissingArgumentException
 import revxrsal.commands.exception.NoPermissionException
 import revxrsal.commands.node.ParameterNode
@@ -20,6 +21,10 @@ class CommandExceptionHandler : BukkitExceptionHandler() {
         } else {
             actor.asPlayer()!!.sendMessage(messages.invalidPlayer())
         }
+    }
+
+    override fun onSenderNotPlayer(e: SenderNotPlayerException?, actor: BukkitCommandActor) {
+        actor.reply(messages.noPermission())
     }
 
     override fun onNoPermission(e: NoPermissionException, actor: BukkitCommandActor) {

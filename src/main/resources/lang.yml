@@ -5,7 +5,7 @@ messages:
     config_reloaded: "<green>Configuração recarregada com sucesso."
   
     difficulty:
-      set: "<green>Dificuldade <yellow>{difficulty}</yellow> definida com sucesso."
+      changed: "<green>Dificuldade <yellow>{difficulty}</yellow> definida com sucesso."
       invalid: "<red>Dificuldade inválida. As opções válidas são: <yellow>{difficulties}"
   
     warps:
@@ -18,3 +18,4 @@ messages:
 
     gamemode:
       changed: "<green>Gamemode alterado para <yellow>{gamemode}</yellow>."
+      invalid: "<red>Modo de jogo inválido."

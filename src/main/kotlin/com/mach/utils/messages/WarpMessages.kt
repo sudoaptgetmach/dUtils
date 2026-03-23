@@ -33,7 +33,7 @@ class WarpMessages : MessageAccessor {
         Messages.WARP_LIST.getPath(),
         "<green>Available warp list: \\n\\n{warpList}",
         mapOf(
-            "warpList" to warpList
+            "{warpList}" to warpList
         )
     )
 

@@ -1,6 +1,7 @@
 package com.mach.utils.service
 
 import com.mach.dFramework.context.FrameworkConfigs
+import com.mach.utils.messages.MessageSanitizer
 import com.mach.utils.model.Warp
 import org.bukkit.Bukkit
 import org.bukkit.Location
@@ -12,7 +13,9 @@ class WarpService(
 
     fun save(warp: Warp): Boolean {
         val world = warp.location.world ?: return false
-        val base = "warps.${warp.name}"
+        val name = MessageSanitizer.canonicalizeWarpName(warp.name)
+        if (name.isEmpty()) return false
+        val base = "warps.$name"
 
         configs.set(file, "$base.world", world.name)
         configs.set(file, "$base.x", warp.location.x)
@@ -26,15 +29,18 @@ class WarpService(
     }
 
     fun delete(name: String): Boolean {
-        if (!exists(name)) return false
+        val sanitizedName = MessageSanitizer.canonicalizeWarpName(name)
+        if (sanitizedName.isEmpty() || !exists(sanitizedName)) return false
 
-        configs.remove(file, "warps.$name")
+        configs.remove(file, "warps.$sanitizedName")
         return configs.save(file)
     }
 
     fun find(name: String): Warp? {
         val conf = configs.get(file) ?: return null
-        val base = "warps.$name"
+        val sanitizedName = MessageSanitizer.canonicalizeWarpName(name)
+        if (sanitizedName.isEmpty()) return null
+        val base = "warps.$sanitizedName"
 
         if (!conf.isConfigurationSection(base)) return null
 
@@ -49,7 +55,7 @@ class WarpService(
         val isPublic = conf.getBoolean("$base.public", false)
 
         return Warp(
-            name,
+            sanitizedName,
             Location(world, x, y, z, yaw, pitch),
             isPublic
         )
@@ -64,6 +70,8 @@ class WarpService(
 
     fun exists(name: String): Boolean {
         val conf = configs.get(file) ?: return false
-        return conf.isSet("warps.$name")
+        val sanitizedName = MessageSanitizer.canonicalizeWarpName(name)
+        if (sanitizedName.isEmpty()) return false
+        return conf.isSet("warps.$sanitizedName")
     }
 }

@@ -12,4 +12,9 @@ class GamemodeMessages : MessageAccessor {
             "{gamemode}" to gamemode
         )
     )
+
+    fun invalidGameMode(): Component = getMessage(
+        Messages.GAMEMODE_INVALID.getPath(),
+        "<red>Invalid gamemode.",
+    )
 }

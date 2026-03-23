@@ -1,97 +1,74 @@
 package com.mach.utils.commands
 
-import com.mach.utils.messages.CoreMessages
 import com.mach.utils.messages.WarpMessages
+import com.mach.utils.messages.MessageSanitizer
 import com.mach.utils.model.Warp
 import com.mach.utils.service.WarpService
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
+import org.bukkit.entity.Player
 import revxrsal.commands.annotation.Command
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
 import revxrsal.commands.bukkit.annotation.CommandPermission
 
 class WarpCommand(private val service: WarpService) {
-    private var coreMessages = CoreMessages()
     private var messages = WarpMessages()
 
     @Command("warp")
     @CommandPermission("dutils.warp")
-    fun warp(sender: BukkitCommandActor, args: Array<out String>?) {
-        if (args.isNullOrEmpty() || args.size > 2) {
+    fun warp(sender: Player, name: String) {
+        val sanitizedName = MessageSanitizer.canonicalizeWarpName(name)
+        if (sanitizedName.isEmpty()) {
             return
         }
-
-        val player = sender.asPlayer() ?: return
-
-        val name = args[0]
-
-        if (name.isEmpty() || args.size > 1) {
-            player.sendMessage(coreMessages.invalidSyntax("warp", "<name>"))
-            return
-        }
-
-        val warp = service.find(name)
+        val warp = service.find(sanitizedName)
 
         if (warp == null) {
-            player.sendMessage(messages.warpNotFound(name))
+            sender.sendMessage(messages.warpNotFound(sanitizedName))
             return
         }
 
-        player.teleport(warp.location)
-        player.sendMessage(messages.teleportedSuccessfully(name))
+        sender.teleport(warp.location)
+        sender.sendMessage(messages.teleportedSuccessfully(sanitizedName))
     }
 
     @Command("setwarp")
     @CommandPermission("dutils.warps.set")
-    fun set(sender: BukkitCommandActor, args: Array<out String>?) {
-        if (args.isNullOrEmpty() || args.size > 1) {
+    fun set(sender: Player, name: String) {
+        val sanitizedName = MessageSanitizer.canonicalizeWarpName(name)
+        if (sanitizedName.isEmpty()) {
             return
         }
 
-        val player = sender.asPlayer()
-
-        if (player == null) {
-            sender.reply(coreMessages.noPermission())
-            return
-        }
-
-        val warp = Warp(args[0], player.location, true)
+        val warp = Warp(sanitizedName, sender.location, true)
 
         if (!service.save(warp)) {
-            sender.reply(Component.text("Unable to set warp ${warp.name}", NamedTextColor.RED))
+            sender.sendMessage(Component.text("Unable to set warp ${warp.name}", NamedTextColor.RED))
             return
         }
 
-        sender.reply(messages.warpAdded(warp.name))
-        return
+        sender.sendMessage(messages.warpAdded(warp.name))
     }
 
     @Command("delwarp")
     @CommandPermission("dutils.warps.delete")
-    fun delete(sender: BukkitCommandActor, args: Array<out String>?) {
-        if (args.isNullOrEmpty() || args.size > 1) {
+    fun delete(player: Player, name: String) {
+        val sanitizedName = MessageSanitizer.canonicalizeWarpName(name)
+        if (sanitizedName.isEmpty()) {
             return
         }
 
-        val player = sender.asPlayer()
-        val name = args[0]
-
-        if (player == null) {
-            sender.reply(coreMessages.noPermission())
+        if (!service.exists(sanitizedName)) {
+            player.sendMessage(messages.warpNotFound(sanitizedName))
             return
         }
 
-        if (!service.exists(name)) {
-            sender.reply(messages.warpNotFound(name))
+        if (!service.delete(sanitizedName)) {
+            player.sendMessage(Component.text("Unable to delete warp $sanitizedName", NamedTextColor.RED))
             return
         }
 
-        if (!service.delete(name)) {
-            sender.reply(Component.text("Unable to delete warp $name", NamedTextColor.RED))
-            return
-        }
-
-        sender.reply(messages.warpRemoved(name))
+        player.sendMessage(messages.warpRemoved(sanitizedName))
     }
 
     @Command("warps")

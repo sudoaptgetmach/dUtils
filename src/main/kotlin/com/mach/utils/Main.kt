@@ -29,8 +29,8 @@ class Main : JavaPlugin() {
         ctx.initialize()
         MessagesApi.init(ctx)
 
-        getCommand("gamemode")!!.setExecutor(GamemodeCommand())
         lamp.register(DifficultyCommand())
+        lamp.register(GamemodeCommand())
         lamp.register(WarpCommand(WarpService(ctx.configs)))
         lamp.register(DUtilsCommand(ctx))
     }

@@ -1,61 +1,36 @@
 package com.mach.utils.commands
 
-import com.mach.utils.messages.CoreMessages
+import com.mach.utils.enums.GameModes
 import com.mach.utils.messages.GamemodeMessages
-import org.bukkit.Bukkit
-import org.bukkit.GameMode
-import org.bukkit.command.Command
-import org.bukkit.command.CommandExecutor
-import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import revxrsal.commands.annotation.Command
+import revxrsal.commands.annotation.Optional
+import revxrsal.commands.annotation.Suggest
+import revxrsal.commands.bukkit.annotation.CommandPermission
 
-class GamemodeCommand : CommandExecutor {
+class GamemodeCommand {
+    private val messages = GamemodeMessages()
 
-    private val messages = CoreMessages()
-    private val gamemodeMessages = GamemodeMessages()
-
-    override fun onCommand(
-        sender: CommandSender,
-        cmd: Command,
-        string: String,
-        args: Array<out String>
-    ): Boolean {
-        if (sender !is Player || !sender.hasPermission("dutils.gamemode")) {
-            sender.sendMessage(
-                messages.noPermission()
-            )
-            return false
+    @Command("gm", "gamemode")
+    @CommandPermission("dutils.gamemode")
+    fun run(sender: Player,
+            @Suggest("sp", "s", "c", "a")
+            gameMode: String,
+            @Optional player: Player = sender) {
+        if (gameMode.isEmpty()) {
+            return
         }
 
-        if (args.isEmpty() || args.size > 2) {
-            sender.sendMessage(
-                messages.invalidSyntax("gamemode", "<gamemode> [user]")
-            )
+        val gamemode = GameModes.find(gameMode)
 
-            return false
+        if (gamemode == null) {
+            sender.sendMessage(messages.invalidGameMode())
+            return
         }
 
-        val playerName = if (args.size > 1) args[1] else sender.name
-
-        val player = Bukkit.getPlayer(playerName)
-
-        if (!playerName.isEmpty() && player == null) {
-            sender.sendMessage(
-                messages.invalidPlayer()
-            )
-            return false
-        }
-
-        when (args[0]) {
-            "survival", "s", "0" -> player!!.gameMode = GameMode.SURVIVAL
-            "creative", "c", "1" -> player!!.gameMode = GameMode.CREATIVE
-            "adventure", "a", "2" -> player!!.gameMode = GameMode.ADVENTURE
-            "spectator", "sp", "3" -> player!!.gameMode = GameMode.SPECTATOR
-        }
-
-        player!!.sendMessage(
-            gamemodeMessages.changed(player.gameMode.toString())
+        player.gameMode = gamemode
+        player.sendMessage(
+            messages.changed(player.gameMode.toString())
         )
-        return false
     }
 }

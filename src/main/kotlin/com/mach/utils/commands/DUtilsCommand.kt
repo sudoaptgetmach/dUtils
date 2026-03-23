@@ -32,6 +32,5 @@ class DUtilsCommand(private val ctx: FrameworkContext) {
             ctx.configs.reload(config)
         }
         sender.reply(messages.reloadMessage())
-        return
     }
 }

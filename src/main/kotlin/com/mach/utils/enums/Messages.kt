@@ -20,7 +20,8 @@ enum class Messages(private val _path: String) : MessageKey {
     WARP_NOT_FOUND("messages.warps.not_found"),
     WARP_TELEPORTED_SUCCESSFULLY("messages.warps.teleported_successfully"),
 
-    GAMEMODE_CHANGED("messages.gamemode.changed");
+    GAMEMODE_CHANGED("messages.gamemode.changed"),
+    GAMEMODE_INVALID("messages.gamemode.invalid");
 
     override fun getPath(): String = _path
 }
