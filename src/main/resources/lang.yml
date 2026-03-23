@@ -6,7 +6,7 @@ messages:
   
     difficulty:
       changed: "<green>Dificuldade <yellow>{difficulty}</yellow> definida com sucesso."
-      invalid: "<red>Dificuldade inválida. As opções válidas são: <yellow>{difficulties}"
+      invalid: "<red>Dificuldade inválida. As opções válidas são: \n<yellow>{difficulties}"
   
     warps:
       list: "<green>Lista de warps disponíveis: <gray>\n\n{warpList}"
@@ -17,5 +17,6 @@ messages:
       teleported_successfully: "<green>Teleportado com sucesso para a warp <yellow>{name}</yellow>."
 
     gamemode:
-      changed: "<green>Gamemode alterado para <yellow>{gamemode}</yellow>."
+      set: "<green>Modo de jogo alterado para {gamemode}."
+      changed: "<green>Seu modo de jogo foi alterado para {gamemode}."
       invalid: "<red>Modo de jogo inválido."

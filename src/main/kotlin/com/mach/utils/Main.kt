@@ -17,16 +17,17 @@ class Main : JavaPlugin() {
     private lateinit var ctx: FrameworkContext
 
     override fun onEnable() {
-        val lamp: Lamp<BukkitCommandActor> = BukkitLamp.builder(this)
-            .exceptionHandler(CommandExceptionHandler())
-            .build()
-
         ctx = FrameworkContext.create(this, "lang.yml")
             .registerConfig("config.yml", true)
             .registerConfig("warps.yml", true)
             .registerMessageFile("lang.yml", true)
 
         ctx.initialize()
+
+        val lamp: Lamp<BukkitCommandActor> = BukkitLamp.builder(this)
+            .exceptionHandler(CommandExceptionHandler(ctx))
+            .build()
+
         MessagesApi.init(ctx)
 
         lamp.register(DifficultyCommand())

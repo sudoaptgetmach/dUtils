@@ -1,17 +1,16 @@
 package com.mach.utils.handler
 
+import com.mach.dFramework.context.FrameworkContext
 import com.mach.utils.messages.CoreMessages
 import org.bukkit.Bukkit.getConsoleSender
 import org.bukkit.command.ConsoleCommandSender
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
-import revxrsal.commands.bukkit.exception.BukkitExceptionHandler
-import revxrsal.commands.bukkit.exception.InvalidPlayerException
-import revxrsal.commands.bukkit.exception.SenderNotPlayerException
+import revxrsal.commands.bukkit.exception.*
 import revxrsal.commands.exception.MissingArgumentException
 import revxrsal.commands.exception.NoPermissionException
 import revxrsal.commands.node.ParameterNode
 
-class CommandExceptionHandler : BukkitExceptionHandler() {
+class CommandExceptionHandler(val ctx: FrameworkContext) : BukkitExceptionHandler() {
     val messages: CoreMessages = CoreMessages()
 
     override fun onInvalidPlayer(e: InvalidPlayerException?, actor: BukkitCommandActor) {
@@ -21,6 +20,15 @@ class CommandExceptionHandler : BukkitExceptionHandler() {
         } else {
             actor.asPlayer()!!.sendMessage(messages.invalidPlayer())
         }
+    }
+
+    override fun onMalformedEntitySelector(e: MalformedEntitySelectorException, actor: BukkitCommandActor) {
+        actor.reply(messages.invalidPlayer())
+        ctx.logger.warn("Malformed entity: ${e.errorMessage()}")
+    }
+
+    override fun onEmptyEntitySelector(e: EmptyEntitySelectorException?, actor: BukkitCommandActor) {
+        actor.reply(messages.invalidPlayer())
     }
 
     override fun onSenderNotPlayer(e: SenderNotPlayerException?, actor: BukkitCommandActor) {
