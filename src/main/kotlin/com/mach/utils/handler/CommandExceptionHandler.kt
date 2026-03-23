@@ -10,7 +10,7 @@ import revxrsal.commands.exception.MissingArgumentException
 import revxrsal.commands.exception.NoPermissionException
 import revxrsal.commands.node.ParameterNode
 
-class CommandExceptionHandler(val ctx: FrameworkContext) : BukkitExceptionHandler() {
+class CommandExceptionHandler(private val ctx: FrameworkContext) : BukkitExceptionHandler() {
     val messages: CoreMessages = CoreMessages()
 
     override fun onInvalidPlayer(e: InvalidPlayerException?, actor: BukkitCommandActor) {
