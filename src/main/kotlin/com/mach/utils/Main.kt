@@ -25,7 +25,7 @@ class Main : JavaPlugin() {
         ctx.initialize()
 
         val lamp: Lamp<BukkitCommandActor> = BukkitLamp.builder(this)
-            .exceptionHandler(CommandExceptionHandler(ctx))
+            .exceptionHandler(CommandExceptionHandler(ctx.logger))
             .build()
 
         MessagesApi.init(ctx)
