@@ -1,11 +1,9 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     application
-    kotlin("jvm") version "1.9.0"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
-    id("io.papermc.paperweight.userdev") version "1.5.5"
-    id("xyz.jpenilla.run-paper") version "2.1.0"
+    kotlin("jvm") version "2.3.20"
+    id("com.gradleup.shadow") version "9.4.0"
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.19"
+    id("xyz.jpenilla.run-paper") version "3.0.2"
 }
 
 group = "com.mach"
@@ -22,6 +20,14 @@ dependencies {
     implementation("io.github.revxrsal:lamp.bukkit:4.0.0-rc.14")
     implementation("io.github.revxrsal:lamp.brigadier:4.0.0-rc.14")
     implementation(files("/home/mach/IdeaProjects/dFrameworkKt/build/libs/dFrameworkKt-1.0.jar"))
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.1.0-M1")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.23.0")
+    testImplementation("com.github.seeseemelk:MockBukkit-v1.20:3.93.2")
+}
+
+paperweight {
+    addServerDependencyTo = configurations.named(JavaPlugin.COMPILE_ONLY_CONFIGURATION_NAME).map { setOf(it) }
 }
 
 tasks {
@@ -49,10 +55,6 @@ tasks {
     runServer {
         minecraftVersion("1.20.1")
     }
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "17"
 }
 
 application {
