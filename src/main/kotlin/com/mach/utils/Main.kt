@@ -4,10 +4,12 @@ import com.mach.dFramework.core.context.FrameworkContext
 import com.mach.utils.api.MessagesApi
 import com.mach.utils.commands.DUtilsCommand
 import com.mach.utils.commands.DifficultyCommand
+import com.mach.utils.commands.EnderchestCommand
 import com.mach.utils.commands.FlyCommand
 import com.mach.utils.commands.GamemodeCommand
 import com.mach.utils.commands.WarpCommand
 import com.mach.utils.handler.CommandExceptionHandler
+import com.mach.utils.listener.EnderchestListener
 import com.mach.utils.service.WarpService
 import org.bukkit.plugin.java.JavaPlugin
 import revxrsal.commands.Lamp
@@ -31,11 +33,14 @@ class Main : JavaPlugin() {
 
         MessagesApi.init(ctx)
 
+        server.pluginManager.registerEvents(EnderchestListener(), this)
+
         lamp.register(DifficultyCommand())
         lamp.register(GamemodeCommand())
         lamp.register(WarpCommand(WarpService(ctx.configs)))
         lamp.register(DUtilsCommand(ctx.configs))
         lamp.register(FlyCommand())
+        lamp.register(EnderchestCommand())
     }
 
     override fun onDisable() {
