@@ -1,6 +1,6 @@
 package com.mach.utils.service
 
-import com.mach.dFramework.context.FrameworkConfigs
+import com.mach.dFramework.core.context.FrameworkConfigs
 import com.mach.utils.messages.MessageSanitizer
 import com.mach.utils.model.Warp
 import org.bukkit.Bukkit

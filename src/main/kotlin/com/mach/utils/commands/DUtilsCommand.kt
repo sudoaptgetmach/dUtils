@@ -1,6 +1,6 @@
 package com.mach.utils.commands
 
-import com.mach.dFramework.context.FrameworkContext
+import com.mach.dFramework.core.context.FrameworkConfigs
 import com.mach.utils.messages.CoreMessages
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
@@ -12,14 +12,14 @@ import revxrsal.commands.bukkit.annotation.CommandPermission
 @Command("dutils")
 @CommandPermission("dutils.admin")
 @Suppress("unused")
-class DUtilsCommand(private val ctx: FrameworkContext) {
+class DUtilsCommand(private val configs: FrameworkConfigs) {
 
     private val messages = CoreMessages()
 
     @Subcommand("reload")
     @CommandPermission("dutils.admin.reload")
     fun reload(sender: BukkitCommandActor) {
-        val registeredFiles = ctx.configs.registeredFiles()
+        val registeredFiles = configs.registeredFiles()
 
         if (registeredFiles.isEmpty()) {
             sender.reply(Component.text(
@@ -29,7 +29,7 @@ class DUtilsCommand(private val ctx: FrameworkContext) {
         }
 
         for (config in registeredFiles) {
-            ctx.configs.reload(config)
+            configs.reload(config)
         }
         sender.reply(messages.reloadMessage())
     }

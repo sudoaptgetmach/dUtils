@@ -1,6 +1,6 @@
 package com.mach.utils.enums
 
-import com.mach.dFramework.messages.MessageKey
+import com.mach.dFramework.core.messages.MessageKey
 
 @Suppress("unused")
 enum class Messages(private val _path: String) : MessageKey {
@@ -22,7 +22,13 @@ enum class Messages(private val _path: String) : MessageKey {
 
     GAMEMODE_SET("messages.gamemode.set"),
     GAMEMODE_CHANGED("messages.gamemode.changed"),
-    GAMEMODE_INVALID("messages.gamemode.invalid");
+    GAMEMODE_INVALID("messages.gamemode.invalid"),
+
+    FLY_TOGGLE("messages.fly.toggle"),
+    FLY_TOGGLE_OTHER("messages.fly.toggle_other"),
+    FLY_DISABLE("messages.fly.disable"),
+    FLY_DISABLE_OTHER("messages.fly.disable_other"),
+    ;
 
     override fun getPath(): String = _path
 }

@@ -20,3 +20,9 @@ messages:
       set: "<green>Modo de jogo alterado para {gamemode}."
       changed: "<green>Seu modo de jogo foi alterado para {gamemode}."
       invalid: "<red>Modo de jogo inválido."
+
+    fly:
+      toggle: "<green>Agora você pode voar!"
+      toggle_other: "<green>Você ativou o fly para {player}!"
+      disable: "<red>Você não pode mais voar!"
+      disable_other: "<red>Você desativou o fly para {player}!"

@@ -1,6 +1,6 @@
 package com.mach.utils.handler
 
-import com.mach.dFramework.context.FrameworkLogger
+import com.mach.dFramework.core.context.FrameworkLogger
 import com.mach.utils.messages.CoreMessages
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
 import revxrsal.commands.bukkit.exception.*

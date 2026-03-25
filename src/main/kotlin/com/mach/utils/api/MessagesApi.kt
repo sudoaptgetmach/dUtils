@@ -1,6 +1,6 @@
 package com.mach.utils.api
 
-import com.mach.dFramework.context.FrameworkContext
+import com.mach.dFramework.core.context.FrameworkContext
 import net.kyori.adventure.text.Component
 
 object MessagesApi {
