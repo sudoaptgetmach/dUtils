@@ -28,6 +28,8 @@ enum class Messages(private val _path: String) : MessageKey {
     FLY_TOGGLE_OTHER("messages.fly.toggle_other"),
     FLY_DISABLE("messages.fly.disable"),
     FLY_DISABLE_OTHER("messages.fly.disable_other"),
+
+    ENDERCHEST_OPEN("messages.enderchest.open"),
     ;
 
     override fun getPath(): String = _path

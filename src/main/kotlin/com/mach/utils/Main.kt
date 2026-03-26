@@ -40,7 +40,7 @@ class Main : JavaPlugin() {
         lamp.register(WarpCommand(WarpService(ctx.configs)))
         lamp.register(DUtilsCommand(ctx.configs))
         lamp.register(FlyCommand())
-        lamp.register(EnderchestCommand())
+        lamp.register(EnderchestCommand(ctx))
     }
 
     override fun onDisable() {

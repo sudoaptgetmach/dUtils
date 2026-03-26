@@ -26,3 +26,6 @@ messages:
       toggle_other: "<green>Você ativou o fly para {player}!"
       disable: "<red>Você não pode mais voar!"
       disable_other: "<red>Você desativou o fly para {player}!"
+
+    enderchest:
+      open: "<green>Enderchest aberto."
