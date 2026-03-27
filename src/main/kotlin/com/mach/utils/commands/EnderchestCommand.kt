@@ -10,7 +10,7 @@ import revxrsal.commands.bukkit.annotation.CommandPermission
 @Suppress("unused")
 class EnderchestCommand(val ctx: FrameworkContext) {
 
-    val service = EnderchestService()
+    val service = EnderchestService(ctx)
 
     @Command("enderchest", "ec")
     @CommandPermission("dutils.enderchest.usage")
@@ -20,8 +20,8 @@ class EnderchestCommand(val ctx: FrameworkContext) {
         service.openSelector(sender)
         ctx.messaging.actionbar(
             sender,
-            Messages.ENDERCHEST_OPEN.getPath(),
-            "<green>Enderchests aberto com sucesso!"
+            Messages.ENDERCHEST_SELECTOR_OPEN.getPath(),
+            "<green>Enderchest aberto com sucesso!"
         )
     }
 }

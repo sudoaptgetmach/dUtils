@@ -28,4 +28,5 @@ messages:
       disable_other: "<red>Você desativou o fly para {player}!"
 
     enderchest:
-      open: "<green>Enderchest aberto."
+      selector_open: "<green>Seletor de enderchest aberto."
+      open: "<green>Enderchest {number} aberto."

@@ -7,7 +7,6 @@ import org.bukkit.inventory.ItemStack
 class ItemFactory {
     companion object {
         fun create(stack: ItemStack, data: ItemData): ItemStack {
-
             val item = ItemBuilder(stack)
                 .name(data.name)
                 .amount(data.amount)

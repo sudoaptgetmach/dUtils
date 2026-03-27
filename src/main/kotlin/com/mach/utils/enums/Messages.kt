@@ -29,6 +29,7 @@ enum class Messages(private val _path: String) : MessageKey {
     FLY_DISABLE("messages.fly.disable"),
     FLY_DISABLE_OTHER("messages.fly.disable_other"),
 
+    ENDERCHEST_SELECTOR_OPEN("messages.enderchest.selector_open"),
     ENDERCHEST_OPEN("messages.enderchest.open"),
     ;
 

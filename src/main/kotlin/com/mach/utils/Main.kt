@@ -2,12 +2,7 @@ package com.mach.utils
 
 import com.mach.dFramework.core.context.FrameworkContext
 import com.mach.utils.api.MessagesApi
-import com.mach.utils.commands.DUtilsCommand
-import com.mach.utils.commands.DifficultyCommand
-import com.mach.utils.commands.EnderchestCommand
-import com.mach.utils.commands.FlyCommand
-import com.mach.utils.commands.GamemodeCommand
-import com.mach.utils.commands.WarpCommand
+import com.mach.utils.commands.*
 import com.mach.utils.handler.CommandExceptionHandler
 import com.mach.utils.listener.EnderchestListener
 import com.mach.utils.service.WarpService
@@ -33,7 +28,7 @@ class Main : JavaPlugin() {
 
         MessagesApi.init(ctx)
 
-        server.pluginManager.registerEvents(EnderchestListener(), this)
+        server.pluginManager.registerEvents(EnderchestListener(ctx), this)
 
         lamp.register(DifficultyCommand())
         lamp.register(GamemodeCommand())
