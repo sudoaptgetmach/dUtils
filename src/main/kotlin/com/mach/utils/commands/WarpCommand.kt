@@ -1,7 +1,7 @@
 package com.mach.utils.commands
 
-import com.mach.utils.messages.WarpMessages
 import com.mach.utils.messages.MessageSanitizer
+import com.mach.utils.messages.WarpMessages
 import com.mach.utils.model.Warp
 import com.mach.utils.service.WarpService
 import net.kyori.adventure.text.Component
@@ -11,6 +11,7 @@ import revxrsal.commands.annotation.Command
 import revxrsal.commands.bukkit.actor.BukkitCommandActor
 import revxrsal.commands.bukkit.annotation.CommandPermission
 
+@Suppress("unused")
 class WarpCommand(private val service: WarpService) {
     private var messages = WarpMessages()
 
