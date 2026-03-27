@@ -8,10 +8,7 @@ import revxrsal.commands.annotation.Command
 import revxrsal.commands.bukkit.annotation.CommandPermission
 
 @Suppress("unused")
-class EnderchestCommand(val ctx: FrameworkContext) {
-
-    val service = EnderchestService(ctx)
-
+class EnderchestCommand(val ctx: FrameworkContext, val service: EnderchestService) {
     @Command("enderchest", "ec")
     @CommandPermission("dutils.enderchest.usage")
     fun run(
